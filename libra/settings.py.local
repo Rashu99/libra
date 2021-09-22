@@ -80,6 +80,16 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -123,3 +133,14 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# TWILIO Credentials
+TWILIO_ACCOUNT_ID = config('TWILIO_ACCOUNT_ID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
+TWILIO_NUMBER = "1111111"
+
+OTP_VALIDITY = 1111
+OTP_RESEND_TIME = 1111
+
+SMS_OTP_COOLDOWN_TIME = 1111  # minutes
+THRESHOLD_SMS_OTP_COUNTER = 1111
